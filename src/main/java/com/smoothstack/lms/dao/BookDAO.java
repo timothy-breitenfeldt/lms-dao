@@ -29,6 +29,13 @@ public class BookDAO extends BaseDAO<Book> {
         String sql = "SELECT * FROM tbl_book;";
         return super.getData(sql);
     }
+    
+    public List<Book> getAvailableBooksNotCheckedOut(int branchId, int cardNumber) throws SQLException {
+        String sql = "SELECT bookId, title, pubId"
+                + " FROM tbl_book NATURAL JOIN tbl_book_copies WHERE branchId = ? AND cardNumber = ? AND noOfCopies > 0 AND dateIn != NULL;";
+        Object[] parameters = new Object[] {branchId, cardNumber};
+        return super.getData(sql, parameters);
+    }
 
     public Book getBook(int bookId) throws SQLException {
         String sql = "SELECT * FROM tbl_book WHERE bookId = ?;";

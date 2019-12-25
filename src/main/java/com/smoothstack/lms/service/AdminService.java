@@ -9,7 +9,6 @@ import com.smoothstack.lms.dao.AuthorDAO;
 import com.smoothstack.lms.dao.BookDAO;
 import com.smoothstack.lms.dao.PublisherDAO;
 import com.smoothstack.lms.entity.Author;
-import com.smoothstack.lms.entity.Book;
 import com.smoothstack.lms.entity.Publisher;
 
 public class AdminService {
@@ -119,6 +118,18 @@ public class AdminService {
     }
         
         return "Successfully updated book.";
+    }
+    
+    public String addAuthor(String authorName) {
+        return "";
+    }
+    
+    public String deleteAuthor(int authorId) {
+        return "";
+    }
+    
+    public String updateAuthor(String authorId, String authorName) {
+        return "";
     }
     
 }

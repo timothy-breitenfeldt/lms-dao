@@ -19,10 +19,9 @@ public class PublisherDAO extends BaseDAO<Publisher> {
         return super.insertData(sql, parameters);
     }
     
-    public List<Publisher> getPublishers(int publisherId) throws SQLException {
-        String sql = "SELECT * FROM tbl_publisher WHERE publisherId = ?;";
-        Object[] parameters = new Object[] {publisherId};
-        return super.getData(sql, parameters);
+    public List<Publisher> getPublishers() throws SQLException {
+        String sql = "SELECT * FROM tbl_publisher;";
+        return super.getData(sql);
     }
     
     public Publisher getPublisher(int publisherId) throws SQLException {

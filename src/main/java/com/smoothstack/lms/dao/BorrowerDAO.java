@@ -37,6 +37,14 @@ public class BorrowerDAO extends BaseDAO<Borrower> {
         return borrower;
     }
     
+    public List<Borrower> getBorrowerBooks(int cardNumber, int branchId) throws SQLException {
+        String sql = "SELECT * FROM tbl_borrower "
+                + "NATURAL JOIN TBL_BOOK_LOANS NATURAL JOIN tbl_book NATURAL JOIN tbl_library_branch "
+                + "WHERE cardNo = ? AND branchId = ?;";
+        Object[] parameters = new Object[] {cardNumber, branchId};
+        return super.getData(sql, parameters);
+    }
+    
     public void updateBorrower(int cardNo, String name, String address, String phone) throws SQLException {
         String sql = "UPDATE tbl_borrower SET name=?, address=?, phone=? WHERE cardNo = ?;";
         Object[] parameters = new Object[] {cardNo, name, address, phone};
@@ -47,6 +55,13 @@ public class BorrowerDAO extends BaseDAO<Borrower> {
         String sql = "DELETE FROM tbl_borrower WHERE cardNo = ?;";
         Object[] parameters = new Object[] {cardNo};
         super.modifyData(sql, parameters);
+    }
+    
+    public boolean borrowerExists(int cardNumber) throws SQLException {
+        String sql = "SELECT * FROM tbl_borrower "
+                + "WHERE cardNo = ?;";
+        Object[] parameters = new Object[] {cardNumber};
+        return super.getData(sql, parameters).size() == 1;         
     }
     
     @Override
