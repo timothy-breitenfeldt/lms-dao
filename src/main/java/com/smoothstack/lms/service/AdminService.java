@@ -124,12 +124,53 @@ public class AdminService {
         return "";
     }
     
+    public String updateAuthor(String authorId, String authorName) {
+        return "";
+    }
+
     public String deleteAuthor(int authorId) {
         return "";
     }
     
-    public String updateAuthor(String authorId, String authorName) {
+    public String addPublisher(String name, String address, String phone) {
+        return "";
+    }
+    
+    public String updatePublisher(int publisherId, String name, String address, String phone) {
+        return "";
+    }
+    
+    public String deletePublisher(int publisherId) {
+        return "";
+    }
+    
+    public String addLibraryBranch(String name, String address) {
+        return "";
+    }
+    
+    public String updateLibraryBranch(int branchId, String name, String address) {
+        return "";
+    }
+    
+    public String deleteLibraryBranch(int branchId) {
+        return "";
+    }
+    
+    public String addBorrower(String name, String address, String phone) {
+        return "";
+    }
+    
+    public String updateBorrower(int cardNumber, String name, String address, String phone) {
+        return "";
+    }
+    
+    public String deleteBorrower(int cardNumber) {
+        return "";
+    }
+    
+    public String overrideDueDate(int cardNumber, int bookId, int libraryBranchId, String dueDate) {
         return "";
     }
     
 }
+

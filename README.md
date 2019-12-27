@@ -1,2 +1,0 @@
-# lma
-Library Management Application
